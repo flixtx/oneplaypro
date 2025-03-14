@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html style="background-image: url(https://img3.wallspic.com/previews/9/3/0/4/6/164039/164039-galaxy_twitch_banner-twitch-web_banner-streaming_media-gamer-x750.jpg);">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ name }} - Stremio Addon</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Open Sans', Arial, sans-serif;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            padding: 5vw;
+        }
+
+        #addon {
+            width: 90%;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            height: 100px;
+            width: 100px;
+            margin: 0 auto 20px;
+        }
+
+        .logo img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2.5vh;
+            font-weight: bold;
+            margin-bottom: 1vh;
+        }
+
+        h2 {
+            font-size: 2vh;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 2vh;
+        }
+
+        h3 {
+            font-size: 2vh;
+            margin-bottom: 1.5vh;
+        }
+
+        p, ul {
+            font-size: 1.8vh;
+            margin-bottom: 2vh;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            color: white;
+            background: #7D3C98;
+            padding: 1.5vh 4vh;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2vh;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+            margin-bottom: 1vh;
+        }
+
+        button:hover {
+            background: #a065c3;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Espaçamento entre os botões */
+            margin-top: 10px;
+        }
+
+        .footer {
+            font-size: 1.5vh;
+            opacity: 0.7;
+        }
+    </style>
+	<link rel="icon" type="image/png" href="{{ logo }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC2FzZvlHb6A8YN/WnHpVpQL6PTXKz3b8mKxQ5aG5Kc=" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="addon">
+        <div class="logo">
+            <img src="{{ logo }}">
+        </div>
+        <h1 class="name">{{ name }}</h1>
+        <h2 class="version">{{ version }}</h2>
+        <h2 class="description">{{ description }}</h2>
+        
+        <div class="separator"></div>
+        
+        <h3 class="gives">This addon has more:</h3>
+		<ul> {% for type in types %} 
+			<li>{{ type }}</li> 
+			{% endfor %} 
+		</ul>
+        
+        <div class="separator"></div>
+        
+        <a id="installLink" class="install-link" href="#">
+            <button name="Install">Install on Stremio</button>
+        </a>
+
+        <div class="button-container">
+            <a href="https://t.me/oneplay2019" target="_blank">
+                <button>Telegram</button>
+            </a>
+            <a href="https://github.com/zoreu/oneplaypro" target="_blank">
+                <button>GitHub</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p id="footer-text"></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var installLink = document.getElementById("installLink");
+            installLink.href = 'stremio://' + window.location.host + '/manifest.json';
+
+            var currentYear = new Date().getFullYear();
+            document.getElementById("footer-text").textContent = "© " + currentYear + " OnePlay Team | Developed by Joel";
+        });
+    </script>
+</body>
+</html>
