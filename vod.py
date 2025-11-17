@@ -8,7 +8,7 @@ import re
 class ondemand:
     def __init__(self):
         self.proxy_image = 'https://da5f663b4690-proxyimage.baby-beamup.club/proxy-image/?url='
-        self.vod_site = 'https://www.visioncine.stream/'
+        self.vod_site = 'https://flixapi.brunoflix9.workers.dev/'
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
         }
