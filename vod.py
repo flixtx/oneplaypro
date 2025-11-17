@@ -710,7 +710,7 @@ class ondemand:
                 seasons = soup.find('select', {'id': 'seasons-view'}).find_all('option')
                 for sn, season in enumerate(seasons, start=1):
                     id_season = season.get('value', '')
-                    episodes_url = f'https://visioncine-1.com.br/ajax/episodes.php?season={id_season}&page=1&_=1741914620310'
+                    episodes_url = f'https://flixapi.brunoflix9.workers.dev/ajax/episodes.php?season={id_season}&page=1&_=1741914620310'
                     r_episodes = self.session.get(episodes_url)
                     soup_episodes = BeautifulSoup(r_episodes.text, 'html.parser')
                     buttons = soup_episodes.find_all('a', {'class': 'btn free fw-bold rounded-circle'})
@@ -1028,7 +1028,7 @@ class ondemand:
                 for sn, season in enumerate(seasons, start=1):
                     if int(season_number) == sn:
                         id_season = season.get('value', '')
-                        episodes_url = f'https://visioncine-1.com.br/ajax/episodes.php?season={id_season}&page=1&_=1741914620310'
+                        episodes_url = f'https://flixapi.brunoflix9.workers.dev/ajax/episodes.php?season={id_season}&page=1&_=1741914620310'
                         r_episodes = self.session.get(episodes_url)
                         soup_episodes = BeautifulSoup(r_episodes.text, 'html.parser')
                         buttons = soup_episodes.find_all('a', {'class': 'btn free fw-bold rounded-circle'})
